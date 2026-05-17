@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane
+        xmlns="http://javafx.com/javafx/17.0.12"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="com.brightstar.brightstar.HelloController"
+        style="-fx-background-color: #C98B00;">
+
+    <VBox
+            alignment="CENTER"
+            spacing="16.0"
+            maxWidth="400.0">
+
+        <!-- Title -->
+        <Label
+                text="BrightStart Preschool SIMS"
+                wrapText="true"
+                style="
+                    -fx-text-fill: white;
+                    -fx-font-size: 30px;
+                    -fx-font-weight: bold;
+                    -fx-font-family: 'Georgia';
+                "/>
+
+        <!-- Subtitle -->
+        <Label
+                fx:id="errorLabel"
+                text=""
+                style="
+                    -fx-text-fill: rgba(255,255,255,0.85);
+                    -fx-font-size: 14px;
+                    -fx-font-family: 'Georgia';
+                "/>
+
+        <!-- Spacer -->
+        <Region prefHeight="8.0"/>
+
+        <!-- Username -->
+        <TextField
+                fx:id="usernameField"
+                promptText="Username"
+                prefWidth="320.0"
+                prefHeight="38.0"
+                style="
+                    -fx-background-color: #f0f0ee;
+                    -fx-background-radius: 4;
+                    -fx-border-color: #d0cfc9;
+                    -fx-border-radius: 4;
+                    -fx-border-width: 1;
+                    -fx-text-fill: #333333;
+                    -fx-prompt-text-fill: #999999;
+                    -fx-font-size: 13px;
+                    -fx-padding: 0 12 0 12;
+                "/>
+
+        <!-- Password -->
+        <PasswordField
+                fx:id="passwordField"
+                promptText="Password"
+                prefWidth="320.0"
+                prefHeight="38.0"
+                style="
+                    -fx-background-color: #f0f0ee;
+                    -fx-background-radius: 4;
+                    -fx-border-color: #d0cfc9;
+                    -fx-border-radius: 4;
+                    -fx-border-width: 1;
+                    -fx-text-fill: #333333;
+                    -fx-prompt-text-fill: #999999;
+                    -fx-font-size: 13px;
+                    -fx-padding: 0 12 0 12;
+                "/>
+
+        <!-- Login Button (left-aligned to match screenshot) -->
+        <HBox prefWidth="320.0">
+            <Button
+                    text="Login"
+                    mnemonicParsing="false"
+                    prefWidth="100.0"
+                    prefHeight="34.0"
+                    onAction="#handleLogin"
+                    style="
+                        -fx-background-color: #e8e6e0;
+                        -fx-background-radius: 4;
+                        -fx-border-color: #c0bfb8;
+                        -fx-border-radius: 4;
+                        -fx-border-width: 1;
+                        -fx-text-fill: #333333;
+                        -fx-font-size: 13px;
+                        -fx-font-family: 'Georgia';
+                        -fx-cursor: hand;
+                    "/>
+        </HBox>
+
+        <!-- Forgot Password -->
+        <HBox prefWidth="320.0">
+            <Hyperlink
+                    text="Forgot Password?"
+                    style="
+                        -fx-text-fill: #5b8fcc;
+                        -fx-font-size: 12px;
+                        -fx-font-family: 'Georgia';
+                        -fx-border-color: transparent;
+                        -fx-underline: true;
+                    "/>
+        </HBox>
+
+    </VBox>
+</StackPane>

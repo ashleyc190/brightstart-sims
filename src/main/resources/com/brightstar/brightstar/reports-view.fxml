@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox
+        xmlns="http://javafx.com/javafx/17.0.12"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="com.brightstar.brightstar.ReportsController"
+        style="-fx-background-color: #c8900a;">
+
+    <!-- ── HEADER ── -->
+    <HBox alignment="CENTER_LEFT" prefHeight="72.0"
+          style="-fx-background-color: #c8900a;">
+        <padding><Insets top="12" right="28" bottom="12" left="28"/></padding>
+
+        <VBox HBox.hgrow="ALWAYS" alignment="CENTER_LEFT">
+            <Label text="BrightStart Preschool SIMS"
+                   style="-fx-text-fill:white;-fx-font-size:28px;-fx-font-weight:bold;-fx-font-family:'Georgia';"/>
+            <Label text="Dashboard  >  Reports  >  Reports Dashboard"
+                   style="-fx-text-fill:rgba(255,255,255,0.70);-fx-font-size:11px;-fx-font-family:'Georgia';"/>
+        </VBox>
+
+        <Label fx:id="dateLabel" text="28 April 2026"
+               style="-fx-text-fill:white;-fx-font-size:15px;-fx-font-weight:bold;-fx-font-family:'Georgia';"/>
+    </HBox>
+
+    <!-- ── TOOLBAR ── -->
+    <HBox spacing="10.0" style="-fx-background-color:#c8900a;">
+        <padding><Insets top="0" right="28" bottom="14" left="28"/></padding>
+        <Button text="Search Reports" mnemonicParsing="false"
+                style="-fx-background-color:white;-fx-background-radius:4;-fx-border-color:#cccccc;
+                       -fx-border-radius:4;-fx-font-size:12px;-fx-font-family:'Georgia';
+                       -fx-cursor:hand;-fx-padding:6 16 6 16;"/>
+        <Button text="Filter By Date" mnemonicParsing="false"
+                style="-fx-background-color:white;-fx-background-radius:4;-fx-border-color:#cccccc;
+                       -fx-border-radius:4;-fx-font-size:12px;-fx-font-family:'Georgia';
+                       -fx-cursor:hand;-fx-padding:6 16 6 16;"/>
+    </HBox>
+
+    <!-- ── MAIN CONTENT ── -->
+    <VBox VBox.vgrow="ALWAYS" spacing="14.0"
+          style="-fx-background-color:#d9d9d6;">
+        <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+        <!-- ── STAT CARDS ── -->
+        <HBox spacing="14.0">
+
+            <VBox alignment="CENTER" spacing="10.0" HBox.hgrow="ALWAYS" prefHeight="120.0"
+                  style="-fx-background-color:white;-fx-background-radius:8;
+                         -fx-effect:dropshadow(gaussian,rgba(0,0,0,0.10),8,0,0,2);
+                         -fx-border-color:#eeeeee;-fx-border-radius:8;-fx-border-width:1;">
+                <padding><Insets top="20" right="16" bottom="20" left="16"/></padding>
+                <Label text="👤   Total Students"
+                       style="-fx-font-size:13px;-fx-font-family:'Georgia';-fx-text-fill:#777;"/>
+                <Label fx:id="totalStudentsLabel" text="60"
+                       style="-fx-font-size:38px;-fx-font-weight:bold;-fx-font-family:'Georgia';-fx-text-fill:#1a1a1a;"/>
+            </VBox>
+
+            <VBox alignment="CENTER" spacing="10.0" HBox.hgrow="ALWAYS" prefHeight="120.0"
+                  style="-fx-background-color:white;-fx-background-radius:8;
+                         -fx-effect:dropshadow(gaussian,rgba(0,0,0,0.10),8,0,0,2);
+                         -fx-border-color:#eeeeee;-fx-border-radius:8;-fx-border-width:1;">
+                <padding><Insets top="20" right="16" bottom="20" left="16"/></padding>
+                <Label text="📊   Attendance Rate"
+                       style="-fx-font-size:13px;-fx-font-family:'Georgia';-fx-text-fill:#777;"/>
+                <Label fx:id="attendanceLabel" text="95%"
+                       style="-fx-font-size:38px;-fx-font-weight:bold;-fx-font-family:'Georgia';-fx-text-fill:#1a1a1a;"/>
+            </VBox>
+
+            <VBox alignment="CENTER" spacing="10.0" HBox.hgrow="ALWAYS" prefHeight="120.0"
+                  style="-fx-background-color:white;-fx-background-radius:8;
+                         -fx-effect:dropshadow(gaussian,rgba(0,0,0,0.10),8,0,0,2);
+                         -fx-border-color:#eeeeee;-fx-border-radius:8;-fx-border-width:1;">
+                <padding><Insets top="20" right="16" bottom="20" left="16"/></padding>
+                <Label text="💰   Outstanding Fees"
+                       style="-fx-font-size:13px;-fx-font-family:'Georgia';-fx-text-fill:#777;"/>
+                <Label fx:id="feesLabel" text="R 5000.00"
+                       style="-fx-font-size:38px;-fx-font-weight:bold;-fx-font-family:'Georgia';-fx-text-fill:#1a1a1a;"/>
+            </VBox>
+
+            <VBox alignment="CENTER" spacing="10.0" HBox.hgrow="ALWAYS" prefHeight="120.0"
+                  style="-fx-background-color:white;-fx-background-radius:8;
+                         -fx-effect:dropshadow(gaussian,rgba(0,0,0,0.10),8,0,0,2);
+                         -fx-border-color:#eeeeee;-fx-border-radius:8;-fx-border-width:1;">
+                <padding><Insets top="20" right="16" bottom="20" left="16"/></padding>
+                <Label text="✉   Messages"
+                       style="-fx-font-size:13px;-fx-font-family:'Georgia';-fx-text-fill:#777;"/>
+                <Label fx:id="messagesLabel" text="12"
+                       style="-fx-font-size:38px;-fx-font-weight:bold;-fx-font-family:'Georgia';-fx-text-fill:#1a1a1a;"/>
+            </VBox>
+
+        </HBox>
+
+        <!-- ── BAR CHART ── -->
+        <VBox VBox.vgrow="ALWAYS"
+              style="-fx-background-color:white;-fx-background-radius:8;
+                     -fx-effect:dropshadow(gaussian,rgba(0,0,0,0.10),8,0,0,2);
+                     -fx-border-color:#eeeeee;-fx-border-radius:8;-fx-border-width:1;">
+            <padding><Insets top="20" right="24" bottom="20" left="24"/></padding>
+            <spacing>4</spacing>
+
+            <!-- Header -->
+            <Label text="Overview"
+                   style="-fx-font-size:14px;-fx-font-weight:bold;-fx-font-family:'Georgia';
+                          -fx-text-fill:#444;-fx-padding:0 0 10 0;"/>
+
+            <!-- Total Students -->
+            <HBox alignment="CENTER_LEFT" prefHeight="52.0" spacing="16.0">
+                <Label text="Total Students" prefWidth="150"
+                       style="-fx-font-size:13px;-fx-font-family:'Georgia';-fx-font-weight:bold;-fx-text-fill:#333;"/>
+                <HBox VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS" alignment="CENTER_LEFT">
+                    <Region prefHeight="30" prefWidth="260"
+                            style="-fx-background-color:#b8b8b8;-fx-background-radius:4;"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                </HBox>
+            </HBox>
+
+            <Separator style="-fx-background-color:#f0f0f0;"/>
+
+            <!-- Attendance Rate -->
+            <HBox alignment="CENTER_LEFT" prefHeight="52.0" spacing="16.0">
+                <Label text="Attendance Rate" prefWidth="150"
+                       style="-fx-font-size:13px;-fx-font-family:'Georgia';-fx-font-weight:bold;-fx-text-fill:#333;"/>
+                <HBox HBox.hgrow="ALWAYS" alignment="CENTER_LEFT">
+                    <Region prefHeight="30" prefWidth="360"
+                            style="-fx-background-color:#888888;-fx-background-radius:4;"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                </HBox>
+            </HBox>
+
+            <Separator style="-fx-background-color:#f0f0f0;"/>
+
+            <!-- Outstanding Fees -->
+            <HBox alignment="CENTER_LEFT" prefHeight="52.0" spacing="16.0">
+                <Label text="Outstanding Fees" prefWidth="150"
+                       style="-fx-font-size:13px;-fx-font-family:'Georgia';-fx-font-weight:bold;-fx-text-fill:#333;"/>
+                <HBox HBox.hgrow="ALWAYS" alignment="CENTER_LEFT">
+                    <Region prefHeight="30" prefWidth="460"
+                            style="-fx-background-color:#555555;-fx-background-radius:4;"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                </HBox>
+            </HBox>
+
+            <Separator style="-fx-background-color:#f0f0f0;"/>
+
+            <!-- Messages -->
+            <HBox alignment="CENTER_LEFT" prefHeight="52.0" spacing="16.0">
+                <Label text="Messages" prefWidth="150"
+                       style="-fx-font-size:13px;-fx-font-family:'Georgia';-fx-font-weight:bold;-fx-text-fill:#333;"/>
+                <HBox HBox.hgrow="ALWAYS" alignment="CENTER_LEFT">
+                    <Region prefHeight="30" prefWidth="180"
+                            style="-fx-background-color:#1a1a1a;-fx-background-radius:4;"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                </HBox>
+            </HBox>
+
+        </VBox>
+
+        <!-- ── RECENT REPORTS ── -->
+        <VBox style="-fx-background-color:white;-fx-background-radius:8;
+                     -fx-effect:dropshadow(gaussian,rgba(0,0,0,0.10),8,0,0,2);
+                     -fx-border-color:#eeeeee;-fx-border-radius:8;-fx-border-width:1;">
+
+            <!-- Heading row with amber left accent -->
+            <HBox prefHeight="52.0" alignment="CENTER_LEFT" spacing="14.0"
+                  style="-fx-border-color:#eeeeee;-fx-border-width:0 0 1 0;">
+                <Region prefWidth="5" prefHeight="52"
+                        style="-fx-background-color:#c8900a;-fx-background-radius:8 0 0 0;"/>
+                <Label text="Recent Reports"
+                       style="-fx-font-size:16px;-fx-font-weight:bold;-fx-font-family:'Georgia';-fx-text-fill:#222;"/>
+            </HBox>
+
+            <!-- Report rows -->
+            <HBox prefHeight="48.0" alignment="CENTER_LEFT"
+                  style="-fx-border-color:#f2f2f2;-fx-border-width:0 0 1 0;">
+                <padding><Insets left="20"/></padding>
+                <Hyperlink text="Weekly Attendance Reports"
+                           style="-fx-font-size:13px;-fx-font-family:'Georgia';-fx-font-weight:bold;
+                                  -fx-text-fill:#222;-fx-border-color:transparent;-fx-underline:false;"/>
+            </HBox>
+
+            <HBox prefHeight="48.0" alignment="CENTER_LEFT"
+                  style="-fx-border-color:#f2f2f2;-fx-border-width:0 0 1 0;">
+                <padding><Insets left="20"/></padding>
+                <Hyperlink text="Monthly Fee"
+                           style="-fx-font-size:13px;-fx-font-family:'Georgia';-fx-font-weight:bold;
+                                  -fx-text-fill:#222;-fx-border-color:transparent;-fx-underline:false;"/>
+            </HBox>
+
+            <HBox prefHeight="48.0" alignment="CENTER_LEFT">
+                <padding><Insets left="20"/></padding>
+                <Hyperlink text="Outstanding Balances"
+                           style="-fx-font-size:13px;-fx-font-family:'Georgia';-fx-font-weight:bold;
+                                  -fx-text-fill:#222;-fx-border-color:transparent;-fx-underline:false;"/>
+            </HBox>
+
+        </VBox>
+
+    </VBox>
+</VBox>

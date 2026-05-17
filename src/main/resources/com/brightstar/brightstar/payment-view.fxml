@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox
+        xmlns="http://javafx.com/javafx/17.0.12"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="com.brightstar.brightstar.PaymentController"
+        style="-fx-background-color:#c8900a;">
+
+    <!-- ── HEADER ── -->
+    <HBox alignment="CENTER_LEFT" prefHeight="64.0"
+          style="-fx-background-color:#c8900a;">
+        <padding><Insets top="0" right="20" bottom="0" left="24"/></padding>
+        <VBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+            <Label text="BrightStart Preschool SIMS"
+                   style="-fx-text-fill:white;-fx-font-size:22px;-fx-font-weight:bold;-fx-font-family:'Georgia';"/>
+            <Label text="Dashboard  >  Payments  >  Record Payment"
+                   style="-fx-text-fill:rgba(255,255,255,0.70);-fx-font-size:11px;-fx-font-family:'Georgia';"/>
+        </VBox>
+        <StackPane prefWidth="44" prefHeight="44" maxWidth="44" maxHeight="44"
+                   style="-fx-background-color:#e8e8e8;-fx-background-radius:50;">
+            <Label fx:id="avatarLabel" text="A"
+                   style="-fx-text-fill:#555;-fx-font-size:16px;-fx-font-weight:bold;-fx-font-family:'Georgia';"/>
+        </StackPane>
+    </HBox>
+
+    <!-- ── MAIN CONTENT ── -->
+    <VBox VBox.vgrow="ALWAYS" style="-fx-background-color:#d9d9d6;">
+        <padding><Insets top="24" right="24" bottom="0" left="24"/></padding>
+
+        <!-- Select Student -->
+        <HBox alignment="CENTER_LEFT" spacing="12.0">
+            <padding><Insets bottom="16"/></padding>
+            <Label text="Select Student"
+                   style="-fx-font-size:17px;-fx-font-weight:bold;-fx-font-family:'Georgia';-fx-text-fill:#222;"/>
+            <ComboBox fx:id="studentCombo"
+                      prefWidth="240" prefHeight="34"
+                      style="-fx-background-color:white;-fx-background-radius:4;
+                             -fx-border-color:#cccccc;-fx-border-radius:4;-fx-font-size:13px;"/>
+        </HBox>
+
+        <!-- Two-column cards -->
+        <HBox spacing="16.0" VBox.vgrow="ALWAYS">
+
+            <!-- ── LEFT CARD: Balance + History ── -->
+            <VBox spacing="0" HBox.hgrow="ALWAYS"
+                  style="-fx-background-color:white;-fx-background-radius:8;
+                         -fx-effect:dropshadow(gaussian,rgba(0,0,0,0.10),8,0,0,2);">
+                <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+                <Label text="Outstanding Balance"
+                       style="-fx-font-size:15px;-fx-font-weight:bold;-fx-font-family:'Georgia';-fx-text-fill:#222;"/>
+
+                <HBox alignment="CENTER_LEFT" spacing="4.0">
+                    <padding><Insets top="8" bottom="2"/></padding>
+                    <Label text="R"
+                           style="-fx-font-size:26px;-fx-font-weight:bold;-fx-text-fill:#c8900a;-fx-font-family:'Georgia';"/>
+                    <Label fx:id="balanceLabel" text="0.00"
+                           style="-fx-font-size:36px;-fx-font-weight:bold;-fx-text-fill:#c8900a;-fx-font-family:'Georgia';"/>
+                </HBox>
+
+                <Label fx:id="statusLabel" text="Select a student"
+                       style="-fx-text-fill:#999;-fx-font-size:12px;-fx-font-weight:bold;-fx-font-family:'Georgia';"/>
+
+                <Region prefHeight="16"/>
+
+                <!-- Table header -->
+                <HBox prefHeight="36"
+                      style="-fx-background-color:#c8900a;-fx-background-radius:4 4 0 0;">
+                    <padding><Insets left="10" right="10"/></padding>
+                    <Label text="Date"   prefWidth="110"
+                           style="-fx-text-fill:white;-fx-font-weight:bold;-fx-font-size:13px;-fx-font-family:'Georgia';" HBox.hgrow="ALWAYS"/>
+                    <Label text="Amount" prefWidth="80"
+                           style="-fx-text-fill:white;-fx-font-weight:bold;-fx-font-size:13px;-fx-font-family:'Georgia';" HBox.hgrow="ALWAYS"/>
+                    <Label text="Method" prefWidth="80"
+                           style="-fx-text-fill:white;-fx-font-weight:bold;-fx-font-size:13px;-fx-font-family:'Georgia';" HBox.hgrow="ALWAYS"/>
+                    <Label text="Status" prefWidth="60"
+                           style="-fx-text-fill:white;-fx-font-weight:bold;-fx-font-size:13px;-fx-font-family:'Georgia';" HBox.hgrow="ALWAYS"/>
+                </HBox>
+
+                <!-- Dynamic history rows -->
+                <VBox fx:id="historyTable"/>
+
+            </VBox>
+
+            <!-- ── RIGHT CARD: Record Payment (wrapped in StackPane for overlay) ── -->
+            <StackPane prefWidth="340">
+
+                <VBox spacing="14.0"
+                      style="-fx-background-color:white;-fx-background-radius:8;
+                             -fx-effect:dropshadow(gaussian,rgba(0,0,0,0.10),8,0,0,2);">
+                    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+                    <Label text="Record New Payment"
+                           style="-fx-font-size:15px;-fx-font-weight:bold;-fx-font-family:'Georgia';-fx-text-fill:#222;"/>
+
+                    <!-- Amount + Date -->
+                    <HBox spacing="12.0">
+                        <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                            <Label text="Amount (ZAR)"
+                                   style="-fx-font-size:12px;-fx-font-weight:bold;-fx-font-family:'Georgia';-fx-text-fill:#333;"/>
+                            <TextField fx:id="amountField" prefHeight="34"
+                                       style="-fx-background-color:#f5f5f5;-fx-background-radius:4;
+                                              -fx-border-color:#dddddd;-fx-border-radius:4;
+                                              -fx-font-size:13px;-fx-padding:0 10 0 10;"/>
+                        </VBox>
+                        <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                            <Label text="Payment Date"
+                                   style="-fx-font-size:12px;-fx-font-weight:bold;-fx-font-family:'Georgia';-fx-text-fill:#333;"/>
+                            <TextField fx:id="paymentDateField" prefHeight="34"
+                                       style="-fx-background-color:#f5f5f5;-fx-background-radius:4;
+                                              -fx-border-color:#dddddd;-fx-border-radius:4;
+                                              -fx-font-size:13px;-fx-padding:0 10 0 10;"/>
+                        </VBox>
+                    </HBox>
+
+                    <!-- Payment Method -->
+                    <VBox spacing="5.0">
+                        <Label text="Payment Method"
+                               style="-fx-font-size:12px;-fx-font-weight:bold;-fx-font-family:'Georgia';-fx-text-fill:#333;"/>
+                        <ComboBox fx:id="methodCombo" prefWidth="Infinity" prefHeight="34"
+                                  style="-fx-background-color:#f5f5f5;-fx-background-radius:4;
+                                         -fx-border-color:#dddddd;-fx-border-radius:4;-fx-font-size:13px;"/>
+                    </VBox>
+
+                    <!-- Reference Number -->
+                    <VBox spacing="5.0">
+                        <Label text="Reference Number"
+                               style="-fx-font-size:12px;-fx-font-weight:bold;-fx-font-family:'Georgia';-fx-text-fill:#333;"/>
+                        <TextField fx:id="referenceField" prefHeight="34"
+                                   style="-fx-background-color:#f5f5f5;-fx-background-radius:4;
+                                          -fx-border-color:#dddddd;-fx-border-radius:4;
+                                          -fx-font-size:13px;-fx-padding:0 10 0 10;"/>
+                    </VBox>
+
+                    <Region VBox.vgrow="ALWAYS"/>
+
+                    <!-- Process Button -->
+                    <Button fx:id="processButton"
+                            text="Process Payment"
+                            mnemonicParsing="false"
+                            prefWidth="Infinity" prefHeight="40"
+                            onAction="#handleProcessPayment"
+                            style="-fx-background-color:#c8900a;-fx-background-radius:6;
+                                   -fx-text-fill:white;-fx-font-size:14px;-fx-font-weight:bold;
+                                   -fx-font-family:'Georgia';-fx-cursor:hand;"/>
+                </VBox>
+
+                <!-- Loading overlay -->
+                <StackPane fx:id="loadingOverlay" visible="false"
+                           style="-fx-background-color:rgba(255,255,255,0.90);-fx-background-radius:8;">
+                    <VBox alignment="CENTER" spacing="12">
+                        <ProgressIndicator prefWidth="48" prefHeight="48"
+                                           style="-fx-accent:#c8900a;"/>
+                        <Label text="Processing payment..."
+                               style="-fx-font-size:13px;-fx-font-family:'Georgia';-fx-text-fill:#555;"/>
+                    </VBox>
+                </StackPane>
+
+            </StackPane>
+
+        </HBox>
+
+        <!-- ── BOTTOM BAR ── -->
+        <HBox alignment="CENTER_LEFT" prefHeight="52" VBox.vgrow="NEVER">
+
+            <HBox alignment="CENTER_LEFT" spacing="7.0" HBox.hgrow="ALWAYS">
+                <Region prefWidth="10" prefHeight="10"
+                        style="-fx-background-color:#4caf50;-fx-background-radius:50;"/>
+                <Label text="Ready"
+                       style="-fx-text-fill:#555;-fx-font-size:12px;-fx-font-family:'Georgia';"/>
+            </HBox>
+
+            <Button text="Cancel" mnemonicParsing="false"
+                    prefWidth="90" prefHeight="34"
+                    onAction="#handleCancel"
+                    style="-fx-background-color:#c8900a;-fx-background-radius:6;
+                           -fx-text-fill:white;-fx-font-size:13px;-fx-font-weight:bold;
+                           -fx-font-family:'Georgia';-fx-cursor:hand;"/>
+        </HBox>
+
+    </VBox>
+</VBox>

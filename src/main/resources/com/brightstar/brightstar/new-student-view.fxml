@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.Circle.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox
+        xmlns="http://javafx.com/javafx/17.0.12"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="com.brightstar.brightstar.StudentController"
+        style="-fx-background-color:#c8900a;">
+
+    <!-- ── HEADER ── -->
+    <HBox alignment="CENTER_LEFT" prefHeight="72.0">
+        <padding><Insets top="14" right="28" bottom="14" left="28"/></padding>
+        <VBox HBox.hgrow="ALWAYS">
+            <Label text="BrightStart Preschool SIMS"
+                   style="-fx-text-fill:white;-fx-font-size:28px;-fx-font-weight:bold;-fx-font-family:'Georgia';"/>
+            <Label text="Dashboard  >  Students  >  New Registration"
+                   style="-fx-text-fill:rgba(255,255,255,0.70);-fx-font-size:11px;-fx-font-family:'Georgia';"/>
+        </VBox>
+        <StackPane prefWidth="44" prefHeight="44" maxWidth="44" maxHeight="44"
+                   style="-fx-background-color:#e8e8e8;-fx-background-radius:50;">
+            <Label fx:id="avatarLabel" text="A"
+                   style="-fx-text-fill:#555;-fx-font-size:16px;-fx-font-weight:bold;"/>
+        </StackPane>
+    </HBox>
+
+    <Region prefHeight="2" style="-fx-background-color:rgba(0,0,0,0.15);"/>
+
+    <!-- ── SCROLLABLE CONTENT ── -->
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS"
+                style="-fx-background-color:#d9d9d6;-fx-background:transparent;-fx-border-color:transparent;">
+        <content>
+            <VBox style="-fx-background-color:#d9d9d6;">
+                <padding><Insets top="28" right="32" bottom="28" left="32"/></padding>
+                <spacing>0</spacing>
+
+                <!-- Form card -->
+                <VBox style="-fx-background-color:white;-fx-background-radius:10;
+                             -fx-effect:dropshadow(gaussian,rgba(0,0,0,0.08),10,0,0,3);">
+                    <padding><Insets top="28" right="32" bottom="28" left="32"/></padding>
+                    <spacing>18</spacing>
+
+                    <!-- Title -->
+                    <VBox spacing="4.0">
+                        <Label text="Register New Student"
+                               style="-fx-font-size:20px;-fx-font-weight:bold;-fx-font-family:'Georgia';-fx-text-fill:#1a1a1a;"/>
+                        <Label text="Complete all required fields marked with *"
+                               style="-fx-font-size:12px;-fx-font-family:'Georgia';-fx-text-fill:#999;"/>
+                    </VBox>
+
+                    <!-- ── PERSONAL INFORMATION ── -->
+                    <VBox spacing="0">
+                        <HBox alignment="CENTER_LEFT" prefHeight="32"
+                              style="-fx-border-color:#c8900a;-fx-border-width:0 0 0 4;-fx-background-color:#fff8ee;-fx-background-radius:0 4 4 0;">
+                            <padding><Insets left="12"/></padding>
+                            <Label text="Personal Information"
+                                   style="-fx-font-size:13px;-fx-font-weight:bold;-fx-font-family:'Georgia';-fx-text-fill:#c8900a;"/>
+                        </HBox>
+                    </VBox>
+
+                    <!-- First Name + Last Name -->
+                    <HBox spacing="24.0">
+                        <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+                            <Label text="First Name *"
+                                   style="-fx-font-size:12px;-fx-font-weight:bold;-fx-font-family:'Georgia';-fx-text-fill:#444;"/>
+                            <TextField fx:id="firstNameField"
+                                       prefHeight="38"
+                                       promptText=""
+                                       style="-fx-background-color:white;-fx-background-radius:4;
+                                              -fx-border-color:#cccccc;-fx-border-radius:4;-fx-border-width:1;
+                                              -fx-font-size:13px;-fx-padding:0 10 0 10;"/>
+                        </VBox>
+                        <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+                            <Label text="Last Name *"
+                                   style="-fx-font-size:12px;-fx-font-weight:bold;-fx-font-family:'Georgia';-fx-text-fill:#444;"/>
+                            <TextField fx:id="lastNameField"
+                                       prefHeight="38"
+                                       promptText=""
+                                       style="-fx-background-color:white;-fx-background-radius:4;
+                                              -fx-border-color:#cccccc;-fx-border-radius:4;-fx-border-width:1;
+                                              -fx-font-size:13px;-fx-padding:0 10 0 10;"/>
+                        </VBox>
+                    </HBox>
+
+                    <!-- DOB + Gender -->
+                    <HBox spacing="24.0">
+                        <VBox spacing="6.0" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                            <Label text="Date of Birth *"
+                                   style="-fx-font-size:12px;-fx-font-weight:bold;-fx-font-family:'Georgia';-fx-text-fill:#444;"/>
+                            <TextField fx:id="dobField"
+                                       prefHeight="38" maxWidth="Infinity"
+                                       promptText="YYYY-MM-DD"
+                                       style="-fx-background-color:white;-fx-background-radius:4;
+                          -fx-border-color:#cccccc;-fx-border-radius:4;-fx-border-width:1;
+                          -fx-font-size:13px;-fx-padding:0 10 0 10;"/>
+                        </VBox>
+                        <VBox spacing="6.0" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                            <Label text="Gender *"
+                                   style="-fx-font-size:12px;-fx-font-weight:bold;-fx-font-family:'Georgia';-fx-text-fill:#444;"/>
+                            <ComboBox fx:id="genderCombo"
+                                      maxWidth="Infinity" prefHeight="38"
+                                      style="-fx-background-color:white;-fx-background-radius:4;
+                         -fx-border-color:#cccccc;-fx-border-radius:4;-fx-border-width:1;
+                         -fx-font-size:13px;"/>
+                        </VBox>
+                    </HBox>
+
+                    <!-- Profile Photo + Enrolment Date -->
+                    <HBox spacing="24.0">
+                        <VBox spacing="6.0" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                            <Label text="Enrolment Date *"
+                                   style="-fx-font-size:12px;-fx-font-weight:bold;-fx-font-family:'Georgia';-fx-text-fill:#444;"/>
+                            <TextField fx:id="enrolmentDateField"
+                                       prefHeight="38" maxWidth="Infinity"
+                                       promptText="YYYY-MM-DD"
+                                       style="-fx-background-color:white;-fx-background-radius:4;
+                          -fx-border-color:#cccccc;-fx-border-radius:4;-fx-border-width:1;
+                          -fx-font-size:13px;-fx-padding:0 10 0 10;"/>
+                        </VBox>
+                        <VBox spacing="6.0" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                            <Label text="Class *"
+                                   style="-fx-font-size:12px;-fx-font-weight:bold;-fx-font-family:'Georgia';-fx-text-fill:#444;"/>
+                            <ComboBox fx:id="classCombo"
+                                      maxWidth="Infinity" prefHeight="38"
+                                      promptText="Select a class"
+                                      style="-fx-background-color:white;-fx-background-radius:4;
+                         -fx-border-color:#cccccc;-fx-border-radius:4;-fx-border-width:1;
+                         -fx-font-size:13px;"/>
+                        </VBox>
+                    </HBox>
+
+                    <!-- Profile Photo — its own row -->
+                    <VBox spacing="6.0">
+                        <Label text="Profile Photo"
+                               style="-fx-font-size:12px;-fx-font-weight:bold;-fx-font-family:'Georgia';-fx-text-fill:#444;"/>
+                        <HBox>
+                            <StackPane prefWidth="90" prefHeight="90"
+                                       style="-fx-background-color:#e8e8e8;-fx-background-radius:6;
+                          -fx-border-color:#cccccc;-fx-border-radius:6;-fx-border-width:1;">
+                                <VBox alignment="CENTER" spacing="4">
+                                    <Label text="📷" style="-fx-font-size:20px;-fx-text-fill:#aaa;"/>
+                                    <Label text="Upload"
+                                           style="-fx-font-size:11px;-fx-text-fill:#aaa;-fx-font-family:'Georgia';"/>
+                                </VBox>
+                            </StackPane>
+                        </HBox>
+                    </VBox>
+
+                    <!-- ── GUARDIAN INFORMATION ── -->
+                    <VBox spacing="0">
+                        <HBox alignment="CENTER_LEFT" prefHeight="32"
+                              style="-fx-border-color:#c8900a;-fx-border-width:0 0 0 4;-fx-background-color:#fff8ee;-fx-background-radius:0 4 4 0;">
+                            <padding><Insets left="12"/></padding>
+                            <Label text="Guardian Information"
+                                   style="-fx-font-size:13px;-fx-font-weight:bold;-fx-font-family:'Georgia';-fx-text-fill:#c8900a;"/>
+                        </HBox>
+                    </VBox>
+
+                    <!-- Guardian Name + Relationship -->
+                    <HBox spacing="24.0">
+                        <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+                            <Label text="Guardian's Name *"
+                                   style="-fx-font-size:12px;-fx-font-weight:bold;-fx-font-family:'Georgia';-fx-text-fill:#444;"/>
+                            <TextField fx:id="guardianNameField"
+                                       prefHeight="38"
+                                       style="-fx-background-color:white;-fx-background-radius:4;
+                                              -fx-border-color:#cccccc;-fx-border-radius:4;-fx-border-width:1;
+                                              -fx-font-size:13px;-fx-padding:0 10 0 10;"/>
+                        </VBox>
+                        <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+                            <Label text="Relationship *"
+                                   style="-fx-font-size:12px;-fx-font-weight:bold;-fx-font-family:'Georgia';-fx-text-fill:#444;"/>
+                            <TextField fx:id="relationshipField"
+                                       prefHeight="38"
+                                       promptText="e.g. Mother, Father"
+                                       style="-fx-background-color:white;-fx-background-radius:4;
+                                              -fx-border-color:#cccccc;-fx-border-radius:4;-fx-border-width:1;
+                                              -fx-font-size:13px;-fx-padding:0 10 0 10;"/>
+                        </VBox>
+                    </HBox>
+
+                    <!-- Phone + Email -->
+                    <HBox spacing="24.0">
+                        <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+                            <Label text="Phone Number *"
+                                   style="-fx-font-size:12px;-fx-font-weight:bold;-fx-font-family:'Georgia';-fx-text-fill:#444;"/>
+                            <TextField fx:id="phoneField"
+                                       prefHeight="38"
+                                       promptText="e.g. 071 234 5678"
+                                       style="-fx-background-color:white;-fx-background-radius:4;
+                                              -fx-border-color:#cccccc;-fx-border-radius:4;-fx-border-width:1;
+                                              -fx-font-size:13px;-fx-padding:0 10 0 10;"/>
+                        </VBox>
+                        <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+                            <Label text="Email Address *"
+                                   style="-fx-font-size:12px;-fx-font-weight:bold;-fx-font-family:'Georgia';-fx-text-fill:#444;"/>
+                            <TextField fx:id="emailField"
+                                       prefHeight="38"
+                                       promptText="e.g. parent@email.com"
+                                       style="-fx-background-color:white;-fx-background-radius:4;
+                                              -fx-border-color:#cccccc;-fx-border-radius:4;-fx-border-width:1;
+                                              -fx-font-size:13px;-fx-padding:0 10 0 10;"/>
+                        </VBox>
+                    </HBox>
+
+                    <!-- Error -->
+                    <Label fx:id="errorLabel" text=""
+                           style="-fx-text-fill:#cc0000;-fx-font-size:12px;-fx-font-family:'Georgia';"/>
+
+                </VBox>
+            </VBox>
+        </content>
+    </ScrollPane>
+
+    <!-- ── BOTTOM BAR ── -->
+    <HBox alignment="CENTER_LEFT" prefHeight="52.0"
+          style="-fx-background-color:#d9d9d6;-fx-border-color:#cccccc;-fx-border-width:1 0 0 0;">
+        <padding><Insets left="28" right="28"/></padding>
+
+        <HBox alignment="CENTER_LEFT" spacing="7.0" HBox.hgrow="ALWAYS">
+            <Region prefWidth="10" prefHeight="10"
+                    style="-fx-background-color:#4caf50;-fx-background-radius:50;"/>
+            <Label text="Draft saved 3 minutes ago"
+                   style="-fx-text-fill:#666;-fx-font-size:12px;-fx-font-family:'Georgia';"/>
+        </HBox>
+
+        <HBox spacing="10.0">
+            <Button text="Cancel" mnemonicParsing="false"
+                    onAction="#handleCancel"
+                    style="-fx-background-color:white;-fx-background-radius:5;-fx-border-color:#bbb;
+                           -fx-border-radius:5;-fx-font-size:13px;-fx-font-family:'Georgia';
+                           -fx-cursor:hand;-fx-padding:8 20 8 20;"/>
+            <Button text="Register Student" mnemonicParsing="false"
+                    onAction="#handleSave"
+                    style="-fx-background-color:#c8900a;-fx-background-radius:5;-fx-text-fill:white;
+                           -fx-font-size:13px;-fx-font-weight:bold;-fx-font-family:'Georgia';
+                           -fx-cursor:hand;-fx-padding:8 20 8 20;"/>
+        </HBox>
+    </HBox>
+
+</VBox>

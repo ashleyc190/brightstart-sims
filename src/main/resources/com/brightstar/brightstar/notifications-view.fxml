@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox
+        xmlns="http://javafx.com/javafx/17.0.12"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="com.brightstar.brightstar.NotificationController"
+        style="-fx-background-color:#c8900a;">
+
+    <!-- ── HEADER ── -->
+    <HBox alignment="CENTER_LEFT" prefHeight="68.0">
+        <padding><Insets top="12" right="28" bottom="8" left="24"/></padding>
+
+        <VBox HBox.hgrow="ALWAYS">
+            <Label text="BrightStart Preschool SIMS"
+                   style="-fx-text-fill:white;-fx-font-size:26px;-fx-font-weight:bold;-fx-font-family:'Georgia';"/>
+            <Label text="Dashboard  >  Notifications  >  Send Notifications"
+                   style="-fx-text-fill:rgba(255,255,255,0.72);-fx-font-size:11px;-fx-font-family:'Georgia';"/>
+        </VBox>
+
+        <Label fx:id="dateLabel" text="28 April 2026"
+               style="-fx-text-fill:white;-fx-font-size:14px;-fx-font-weight:bold;-fx-font-family:'Georgia';"/>
+    </HBox>
+
+    <!-- ── TOOLBAR ── -->
+    <HBox spacing="10.0">
+        <padding><Insets top="0" right="24" bottom="16" left="24"/></padding>
+        <Button text="Search Notifications" mnemonicParsing="false"
+                style="-fx-background-color:white;-fx-background-radius:3;-fx-border-color:#ccc;
+                       -fx-border-radius:3;-fx-font-size:12px;-fx-font-family:'Georgia';
+                       -fx-cursor:hand;-fx-padding:5 14 5 14;"/>
+        <ComboBox value="Filter By Date" prefHeight="30"
+                  style="-fx-background-color:white;-fx-background-radius:3;
+                         -fx-border-color:#ccc;-fx-border-radius:3;-fx-font-size:12px;"/>
+    </HBox>
+
+    <!-- ── NOTIFICATION HISTORY (on amber) ── -->
+    <VBox VBox.vgrow="NEVER">
+        <padding><Insets top="0" right="24" bottom="16" left="24"/></padding>
+        <spacing>0</spacing>
+
+        <Label text="Notification History"
+               style="-fx-text-fill:white;-fx-font-size:18px;-fx-font-weight:bold;-fx-font-family:'Georgia';-fx-padding:0 0 10 0;"/>
+
+        <!-- Column headers -->
+        <HBox prefHeight="36.0">
+            <Label text="Recipient" prefWidth="160"
+                   style="-fx-text-fill:white;-fx-font-size:14px;-fx-font-weight:bold;-fx-font-family:'Georgia';"/>
+            <Label text="Subject" prefWidth="160"
+                   style="-fx-text-fill:white;-fx-font-size:14px;-fx-font-weight:bold;-fx-font-family:'Georgia';"/>
+            <Label text="Status" prefWidth="120"
+                   style="-fx-text-fill:white;-fx-font-size:14px;-fx-font-weight:bold;-fx-font-family:'Georgia';"/>
+        </HBox>
+
+        <!-- Row 1 -->
+        <HBox prefHeight="38.0" alignment="CENTER_LEFT"
+              style="-fx-border-color:rgba(255,255,255,0.20);-fx-border-width:1 0 0 0;">
+            <Label text="Parent" prefWidth="160"
+                   style="-fx-text-fill:white;-fx-font-size:13px;-fx-font-family:'Georgia';-fx-padding:0 0 0 8;"/>
+            <Label text="Fee Reminder" prefWidth="160"
+                   style="-fx-text-fill:white;-fx-font-size:13px;-fx-font-family:'Georgia';"/>
+            <Label text="Sent" prefWidth="120"
+                   style="-fx-text-fill:white;-fx-font-size:13px;-fx-font-family:'Georgia';"/>
+        </HBox>
+
+        <!-- Row 2 -->
+        <HBox prefHeight="38.0" alignment="CENTER_LEFT"
+              style="-fx-border-color:rgba(255,255,255,0.20);-fx-border-width:1 0 0 0;">
+            <Label text="Teacher" prefWidth="160"
+                   style="-fx-text-fill:white;-fx-font-size:13px;-fx-font-family:'Georgia';-fx-padding:0 0 0 8;"/>
+            <Label text="Attendance" prefWidth="160"
+                   style="-fx-text-fill:white;-fx-font-size:13px;-fx-font-family:'Georgia';"/>
+            <Label text="Sent" prefWidth="120"
+                   style="-fx-text-fill:white;-fx-font-size:13px;-fx-font-family:'Georgia';"/>
+        </HBox>
+
+        <!-- Row 3 -->
+        <HBox prefHeight="38.0" alignment="CENTER_LEFT"
+              style="-fx-border-color:rgba(255,255,255,0.20);-fx-border-width:1 0 1 0;">
+            <Label text="Parent" prefWidth="160"
+                   style="-fx-text-fill:white;-fx-font-size:13px;-fx-font-family:'Georgia';-fx-padding:0 0 0 8;"/>
+            <Label text="Payment Due" prefWidth="160"
+                   style="-fx-text-fill:white;-fx-font-size:13px;-fx-font-family:'Georgia';"/>
+            <Label text="Pending" prefWidth="120"
+                   style="-fx-text-fill:rgba(255,255,255,0.75);-fx-font-size:13px;-fx-font-family:'Georgia';-fx-font-style:italic;"/>
+        </HBox>
+
+    </VBox>
+
+    <!-- ── NEW NOTIFICATION FORM (white card) ── -->
+    <VBox VBox.vgrow="ALWAYS"
+          style="-fx-background-color:white;-fx-background-radius:0;">
+        <padding><Insets top="24" right="28" bottom="28" left="24"/></padding>
+        <spacing>16</spacing>
+
+        <Label text="New Notification"
+               style="-fx-font-size:16px;-fx-font-weight:bold;-fx-font-family:'Georgia';-fx-text-fill:#1a1a1a;"/>
+
+        <!-- Recipient -->
+        <HBox alignment="CENTER_LEFT" spacing="16.0">
+            <Label text="Recipient:"
+                   prefWidth="80"
+                   style="-fx-font-size:13px;-fx-font-family:'Georgia';-fx-text-fill:#333;"/>
+            <ComboBox fx:id="recipientCombo"
+                      value="Parent"
+                      prefWidth="160"
+                      prefHeight="32"
+                      style="
+                          -fx-background-color:#c8900a;
+                          -fx-background-radius:4;
+                          -fx-text-fill:white;
+                          -fx-font-size:12px;
+                          -fx-font-family:'Georgia';
+                      "/>
+        </HBox>
+
+        <!-- Subject -->
+        <HBox alignment="CENTER_LEFT" spacing="16.0">
+            <Label text="Subject:"
+                   prefWidth="80"
+                   style="-fx-font-size:13px;-fx-font-family:'Georgia';-fx-text-fill:#333;"/>
+            <ComboBox fx:id="subjectCombo"
+                      value="Fee Reminder"
+                      prefWidth="180"
+                      prefHeight="32"
+                      style="
+                          -fx-background-color:#c8900a;
+                          -fx-background-radius:4;
+                          -fx-text-fill:white;
+                          -fx-font-size:12px;
+                          -fx-font-family:'Georgia';
+                      "/>
+        </HBox>
+
+        <!-- Message -->
+        <HBox alignment="TOP_LEFT" spacing="16.0">
+            <Label text="Message:"
+                   prefWidth="80"
+                   style="-fx-font-size:13px;-fx-font-family:'Georgia';-fx-text-fill:#333;-fx-padding:6 0 0 0;"/>
+            <TextArea fx:id="messageArea"
+                      prefWidth="360"
+                      prefHeight="80"
+                      wrapText="true"
+                      style="
+                          -fx-background-color:#ebebeb;
+                          -fx-background-radius:4;
+                          -fx-border-color:#d5d5d5;
+                          -fx-border-radius:4;
+                          -fx-border-width:1;
+                          -fx-font-size:13px;
+                          -fx-font-family:'Georgia';
+                          -fx-text-fill:#333;
+                          -fx-prompt-text-fill:#aaa;
+                      "
+                      promptText="Type your message here..."/>
+        </HBox>
+
+        <Region prefHeight="4"/>
+
+        <!-- Send Button -->
+        <Button text="Send Notification"
+                mnemonicParsing="false"
+                prefHeight="38.0"
+                style="
+                    -fx-background-color:#c8900a;
+                    -fx-background-radius:5;
+                    -fx-text-fill:white;
+                    -fx-font-size:13px;
+                    -fx-font-weight:bold;
+                    -fx-font-family:'Georgia';
+                    -fx-cursor:hand;
+                    -fx-padding:8 20 8 20;
+                "/>
+
+    </VBox>
+
+</VBox>
