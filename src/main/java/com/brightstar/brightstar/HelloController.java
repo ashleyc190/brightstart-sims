@@ -35,7 +35,7 @@ public class HelloController {
         }
 
         SessionManager.setCurrentUser(user);
-        Navigator.navigateTo(event, "notifications-view.fxml");
+        Navigator.navigateTo(event, "dashboard-view.fxml");
     }
 
 }

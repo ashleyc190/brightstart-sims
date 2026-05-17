@@ -29,6 +29,7 @@
             <Label fx:id="avatarLabel" text="T"
                    style="-fx-text-fill:#555;-fx-font-size:16px;-fx-font-weight:bold;-fx-font-family:'Georgia';"/>
         </StackPane>
+
     </HBox>
 
     <!-- ── CONTROLS AREA ── -->
@@ -74,6 +75,12 @@
                               -fx-font-size:12px;-fx-font-family:'Georgia';-fx-font-weight:bold;
                               -fx-padding:4 10 4 10;"/>
             </HBox>
+
+            <Button text="← Back" mnemonicParsing="false"
+                    onAction="#handleBack"
+                    style="-fx-background-color:white;-fx-background-radius:3;-fx-border-color:#ccc;
+                       -fx-border-radius:3;-fx-font-size:12px;-fx-font-family:'Georgia';
+                       -fx-cursor:hand;-fx-padding:5 14 5 14;"/>
         </HBox>
 
         <!-- Row 2: Mark All + Filters -->
@@ -128,7 +135,7 @@
     </ScrollPane>
 
     <!-- ── BOTTOM BAR ── -->
-    <HBox alignment="CENTER_LEFT" prefHeight="52.0"
+    <HBox alignment="CENTER_LEFT" prefHeight="50.0"
           style="-fx-background-color:#d9d9d6;-fx-border-color:#cccccc;-fx-border-width:1 0 0 0;">
         <padding><Insets left="20" right="20"/></padding>
 
@@ -139,11 +146,11 @@
         </HBox>
 
         <HBox spacing="10.0">
-            <Button text="Save as Draft" mnemonicParsing="false"
+            <Button text="Save as Draft" mnemonicParsing="false" onAction="#handleBack"
                     style="-fx-background-color:white;-fx-background-radius:5;-fx-border-color:#bbb;
                            -fx-border-radius:5;-fx-font-size:13px;-fx-font-family:'Georgia';
                            -fx-cursor:hand;-fx-padding:8 18 8 18;"/>
-            <Button text="Submit Attendance" mnemonicParsing="false"
+            <Button text="Submit Attendance" mnemonicParsing="false" onAction="#handleSubmit"
                     style="-fx-background-color:#c8900a;-fx-background-radius:5;-fx-text-fill:white;
                            -fx-font-size:13px;-fx-font-weight:bold;-fx-font-family:'Georgia';
                            -fx-cursor:hand;-fx-padding:8 18 8 18;"/>

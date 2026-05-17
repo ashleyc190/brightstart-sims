@@ -30,9 +30,9 @@
                            -fx-font-family:'Georgia';-fx-cursor:hand;-fx-padding:9 20 9 20;"/>
 
             <VBox alignment="CENTER_RIGHT">
-                <Label fx:id="dateLabel" text=""
+                <Label fx:id="dateLabel"
                        style="-fx-text-fill:white;-fx-font-size:13px;-fx-font-weight:bold;-fx-font-family:'Georgia';"/>
-                <Label fx:id="greetingLabel" text=""
+                <Label fx:id="greetingLabel"
                        style="-fx-text-fill:rgba(255,255,255,0.72);-fx-font-size:11px;-fx-font-family:'Georgia';"/>
             </VBox>
 
