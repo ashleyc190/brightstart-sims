@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<VBox
+        xmlns="http://javafx.com/javafx/17.0.12"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="com.brightstar.brightstar.AttendanceController"
+        style="-fx-background-color: #c8900a;">
+
+    <!-- ── HEADER ── -->
+    <HBox alignment="CENTER_LEFT" prefHeight="68.0"
+          style="-fx-background-color:#c8900a;">
+        <padding><Insets top="12" right="24" bottom="8" left="24"/></padding>
+
+        <VBox HBox.hgrow="ALWAYS">
+            <Label text="BrightStart Preschool SIMS"
+                   style="-fx-text-fill:white;-fx-font-size:26px;-fx-font-weight:bold;-fx-font-family:'Georgia';"/>
+            <Label text="Dashboard  >  Attendance  >  Daily Record"
+                   style="-fx-text-fill:rgba(255,255,255,0.72);-fx-font-size:11px;-fx-font-family:'Georgia';"/>
+        </VBox>
+
+        <!-- Avatar -->
+        <StackPane prefWidth="42" prefHeight="42" maxWidth="42" maxHeight="42"
+                   style="-fx-background-color:#e8e8e8;-fx-background-radius:50;">
+            <Label fx:id="avatarLabel" text="T"
+                   style="-fx-text-fill:#555;-fx-font-size:16px;-fx-font-weight:bold;-fx-font-family:'Georgia';"/>
+        </StackPane>
+
+    </HBox>
+
+    <!-- ── CONTROLS AREA ── -->
+    <VBox spacing="10.0" style="-fx-background-color:#c8900a;">
+        <padding><Insets top="0" right="20" bottom="14" left="20"/></padding>
+
+        <!-- Row 1: Class, Date, Summary -->
+        <HBox alignment="CENTER_LEFT" spacing="20.0">
+
+            <!-- Class -->
+            <HBox alignment="CENTER_LEFT" spacing="8.0">
+                <Label text="Class"
+                       style="-fx-text-fill:white;-fx-font-size:13px;-fx-font-weight:bold;-fx-font-family:'Georgia';"/>
+                <ComboBox fx:id="classCombo" value="Rainbow Class" prefWidth="150" prefHeight="32"
+                          style="-fx-background-color:white;-fx-background-radius:4;-fx-font-size:12px;"/>
+            </HBox>
+
+            <!-- Date -->
+            <HBox alignment="CENTER_LEFT" spacing="8.0">
+                <Label text="Date"
+                       style="-fx-text-fill:white;-fx-font-size:13px;-fx-font-weight:bold;-fx-font-family:'Georgia';"/>
+                <TextField fx:id="dateField" text="25 April 2026" prefWidth="130" prefHeight="32"
+                           style="-fx-background-color:white;-fx-background-radius:4;-fx-font-size:12px;
+                                  -fx-border-color:#ddd;-fx-border-radius:4;-fx-padding:0 8 0 8;"/>
+            </HBox>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <!-- Summary badges -->
+            <HBox alignment="CENTER_LEFT" spacing="6.0">
+                <Label text="Today's Summary"
+                       style="-fx-text-fill:white;-fx-font-size:12px;-fx-font-family:'Georgia';"/>
+                <Label fx:id="presentCount" text="Present: 4"
+                       style="-fx-background-color:#4caf50;-fx-background-radius:4;-fx-text-fill:white;
+                              -fx-font-size:12px;-fx-font-family:'Georgia';-fx-font-weight:bold;
+                              -fx-padding:4 10 4 10;"/>
+                <Label fx:id="absentCount" text="Absent: 1"
+                       style="-fx-background-color:#e57373;-fx-background-radius:4;-fx-text-fill:white;
+                              -fx-font-size:12px;-fx-font-family:'Georgia';-fx-font-weight:bold;
+                              -fx-padding:4 10 4 10;"/>
+                <Label fx:id="lateCount" text="Late: 1"
+                       style="-fx-background-color:#ffb74d;-fx-background-radius:4;-fx-text-fill:white;
+                              -fx-font-size:12px;-fx-font-family:'Georgia';-fx-font-weight:bold;
+                              -fx-padding:4 10 4 10;"/>
+            </HBox>
+
+            <Button text="← Back" mnemonicParsing="false"
+                    onAction="#handleBack"
+                    style="-fx-background-color:white;-fx-background-radius:3;-fx-border-color:#ccc;
+                       -fx-border-radius:3;-fx-font-size:12px;-fx-font-family:'Georgia';
+                       -fx-cursor:hand;-fx-padding:5 14 5 14;"/>
+        </HBox>
+
+        <!-- Row 2: Mark All + Filters -->
+        <HBox alignment="CENTER_LEFT" spacing="12.0">
+            <Button text="Mark All Present" mnemonicParsing="false" onAction="#handleMarkAllPresent"
+                    style="-fx-background-color:white;-fx-background-radius:4;-fx-border-color:#ccc;
+                           -fx-border-radius:4;-fx-font-size:12px;-fx-font-family:'Georgia';
+                           -fx-cursor:hand;-fx-padding:6 14 6 14;"/>
+
+            <Region prefWidth="16"/>
+
+            <Label text="Filter"
+                   style="-fx-text-fill:white;-fx-font-size:12px;-fx-font-family:'Georgia';"/>
+
+            <!-- Filter: All (active) -->
+            <Button text="All" mnemonicParsing="false"
+                    onAction="#handleFilterAll"
+                    style="-fx-background-color:#8a6000;-fx-background-radius:4;
+                           -fx-text-fill:white;-fx-font-size:12px;-fx-font-family:'Georgia';
+                           -fx-cursor:hand;-fx-padding:6 16 6 16;"/>
+            <Button text="Present" mnemonicParsing="false"
+                    onAction="#handleFilterPresent"
+                    style="-fx-background-color:white;-fx-background-radius:4;-fx-border-color:#ccc;
+                           -fx-border-radius:4;-fx-font-size:12px;-fx-font-family:'Georgia';
+                           -fx-cursor:hand;-fx-padding:6 16 6 16;"/>
+            <Button text="Absent" mnemonicParsing="false"
+                    onAction="#handleFilterAbsent"
+                    style="-fx-background-color:white;-fx-background-radius:4;-fx-border-color:#ccc;
+                           -fx-border-radius:4;-fx-font-size:12px;-fx-font-family:'Georgia';
+                           -fx-cursor:hand;-fx-padding:6 16 6 16;"/>
+            <Button text="Late" mnemonicParsing="false"
+                    onAction="#handleFilterLate"
+                    style="-fx-background-color:white;-fx-background-radius:4;-fx-border-color:#ccc;
+                           -fx-border-radius:4;-fx-font-size:12px;-fx-font-family:'Georgia';
+                           -fx-cursor:hand;-fx-padding:6 16 6 16;"/>
+        </HBox>
+    </VBox>
+
+    <!-- ── STUDENT GRID ── -->
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS"
+                style="-fx-background-color:#d9d9d6;-fx-background:transparent;
+                   -fx-border-color:transparent;">
+        <content>
+            <FlowPane fx:id="studentGrid"
+                      hgap="16" vgap="16"
+                      style="-fx-background-color:#d9d9d6;">
+                <padding>
+                    <Insets top="16" right="16" bottom="16" left="16"/>
+                </padding>
+            </FlowPane>
+        </content>
+    </ScrollPane>
+
+    <!-- ── BOTTOM BAR ── -->
+    <HBox alignment="CENTER_LEFT" prefHeight="50.0"
+          style="-fx-background-color:#d9d9d6;-fx-border-color:#cccccc;-fx-border-width:1 0 0 0;">
+        <padding><Insets left="20" right="20"/></padding>
+
+        <HBox alignment="CENTER_LEFT" spacing="7.0" HBox.hgrow="ALWAYS">
+            <Circle radius="5" fill="#4caf50"/>
+            <Label text="Draft saved 3 minutes ago"
+                   style="-fx-text-fill:#666;-fx-font-size:12px;-fx-font-family:'Georgia';"/>
+        </HBox>
+
+        <HBox spacing="10.0">
+            <Button text="Save as Draft" mnemonicParsing="false" onAction="#handleBack"
+                    style="-fx-background-color:white;-fx-background-radius:5;-fx-border-color:#bbb;
+                           -fx-border-radius:5;-fx-font-size:13px;-fx-font-family:'Georgia';
+                           -fx-cursor:hand;-fx-padding:8 18 8 18;"/>
+            <Button text="Submit Attendance" mnemonicParsing="false" onAction="#handleSubmit"
+                    style="-fx-background-color:#c8900a;-fx-background-radius:5;-fx-text-fill:white;
+                           -fx-font-size:13px;-fx-font-weight:bold;-fx-font-family:'Georgia';
+                           -fx-cursor:hand;-fx-padding:8 18 8 18;"/>
+        </HBox>
+    </HBox>
+
+</VBox>
