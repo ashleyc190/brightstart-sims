@@ -28,7 +28,7 @@ public class HelloApplication extends Application {
                 screenBounds.getHeight()
         );
 
-        stage.setTitle("Brightstar - Student Information System");
+        stage.setTitle("Brightstart - Student Information System");
         stage.setMinWidth(900);
         stage.setMinHeight(600);
         stage.setScene(scene);

@@ -3,7 +3,6 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
 
 <VBox
         xmlns="http://javafx.com/javafx/17.0.12"
@@ -22,33 +21,31 @@
                    style="-fx-text-fill:rgba(255,255,255,0.70);-fx-font-size:11px;-fx-font-family:'Georgia';"/>
         </VBox>
 
-        <HBox spacing="4.0" alignment="CENTER_LEFT">
-            <!-- Add this button -->
+        <HBox spacing="16.0" alignment="CENTER_RIGHT">
+
             <Button text="+ New Student" mnemonicParsing="false"
                     onAction="#handleNewStudent"
                     style="-fx-background-color:#1a1a1a;-fx-background-radius:5;
-                   -fx-text-fill:white;-fx-font-size:13px;-fx-font-weight:bold;
-                   -fx-font-family:'Georgia';-fx-cursor:hand;-fx-padding:9 20 9 20;"/>
-        </HBox>
+                           -fx-text-fill:white;-fx-font-size:13px;-fx-font-weight:bold;
+                           -fx-font-family:'Georgia';-fx-cursor:hand;-fx-padding:9 20 9 20;"/>
 
-        <HBox alignment="CENTER_RIGHT" spacing="16.0">
             <VBox alignment="CENTER_RIGHT">
-                <Label fx:id="dateLabel" text="28 April 2026"
+                <Label fx:id="dateLabel" text=""
                        style="-fx-text-fill:white;-fx-font-size:13px;-fx-font-weight:bold;-fx-font-family:'Georgia';"/>
-                <Label fx:id="greetingLabel" text="Good morning"
+                <Label fx:id="greetingLabel" text=""
                        style="-fx-text-fill:rgba(255,255,255,0.72);-fx-font-size:11px;-fx-font-family:'Georgia';"/>
             </VBox>
+
             <StackPane prefWidth="44" prefHeight="44" maxWidth="44" maxHeight="44"
                        style="-fx-background-color:#e8e8e8;-fx-background-radius:50;">
-                <Label text="A"
+                <Label fx:id="avatarLabel" text="A"
                        style="-fx-text-fill:#555;-fx-font-size:16px;-fx-font-weight:bold;"/>
             </StackPane>
         </HBox>
     </HBox>
 
     <!-- ── DIVIDER ── -->
-    <Region prefHeight="2"
-            style="-fx-background-color:rgba(0,0,0,0.15);"/>
+    <Region prefHeight="2" style="-fx-background-color:rgba(0,0,0,0.15);"/>
 
     <!-- ── MAIN CONTENT ── -->
     <VBox VBox.vgrow="ALWAYS" style="-fx-background-color:#efefed;">
@@ -57,29 +54,24 @@
 
         <!-- Welcome banner -->
         <VBox spacing="4.0">
-            <Label text="Welcome back 👋"
+            <Label fx:id="greetingLabel" text=""
                    style="-fx-font-size:22px;-fx-font-weight:bold;-fx-font-family:'Georgia';-fx-text-fill:#1a1a1a;"/>
             <Label text="What would you like to manage today?"
                    style="-fx-font-size:13px;-fx-font-family:'Georgia';-fx-text-fill:#888;"/>
         </VBox>
 
-        <!-- ── NAV CARDS GRID ── -->
+        <!-- ── NAV CARDS ── -->
         <HBox spacing="20.0">
 
             <!-- Attendance -->
             <VBox spacing="16.0" HBox.hgrow="ALWAYS" prefHeight="190.0"
                   style="-fx-background-color:white;-fx-background-radius:10;
-                         -fx-effect:dropshadow(gaussian,rgba(0,0,0,0.08),10,0,0,3);
-                         -fx-cursor:hand;">
+                         -fx-effect:dropshadow(gaussian,rgba(0,0,0,0.08),10,0,0,3);-fx-cursor:hand;">
                 <padding><Insets top="28" right="24" bottom="28" left="24"/></padding>
-
-                <!-- Icon circle -->
                 <StackPane prefWidth="52" prefHeight="52" maxWidth="52" maxHeight="52"
                            style="-fx-background-color:rgba(200,144,10,0.12);-fx-background-radius:50;">
-                    <Label text="📋"
-                           style="-fx-font-size:22px;"/>
+                    <Label text="📋" style="-fx-font-size:22px;"/>
                 </StackPane>
-
                 <VBox spacing="4.0">
                     <Label text="Attendance"
                            style="-fx-font-size:16px;-fx-font-weight:bold;-fx-font-family:'Georgia';-fx-text-fill:#1a1a1a;"/>
@@ -87,9 +79,7 @@
                            wrapText="true"
                            style="-fx-font-size:12px;-fx-font-family:'Georgia';-fx-text-fill:#999;"/>
                 </VBox>
-
                 <Region VBox.vgrow="ALWAYS"/>
-
                 <Button text="Open  →" mnemonicParsing="false"
                         onAction="#handleAttendance"
                         style="-fx-background-color:#c8900a;-fx-background-radius:5;
@@ -100,16 +90,12 @@
             <!-- Payments -->
             <VBox spacing="16.0" HBox.hgrow="ALWAYS" prefHeight="190.0"
                   style="-fx-background-color:white;-fx-background-radius:10;
-                         -fx-effect:dropshadow(gaussian,rgba(0,0,0,0.08),10,0,0,3);
-                         -fx-cursor:hand;">
+                         -fx-effect:dropshadow(gaussian,rgba(0,0,0,0.08),10,0,0,3);-fx-cursor:hand;">
                 <padding><Insets top="28" right="24" bottom="28" left="24"/></padding>
-
                 <StackPane prefWidth="52" prefHeight="52" maxWidth="52" maxHeight="52"
                            style="-fx-background-color:rgba(200,144,10,0.12);-fx-background-radius:50;">
-                    <Label text="💳"
-                           style="-fx-font-size:22px;"/>
+                    <Label text="💳" style="-fx-font-size:22px;"/>
                 </StackPane>
-
                 <VBox spacing="4.0">
                     <Label text="Payments"
                            style="-fx-font-size:16px;-fx-font-weight:bold;-fx-font-family:'Georgia';-fx-text-fill:#1a1a1a;"/>
@@ -117,11 +103,9 @@
                            wrapText="true"
                            style="-fx-font-size:12px;-fx-font-family:'Georgia';-fx-text-fill:#999;"/>
                 </VBox>
-
                 <Region VBox.vgrow="ALWAYS"/>
-
                 <Button text="Open  →" mnemonicParsing="false"
-
+                        onAction="#handlePayments"
                         style="-fx-background-color:#c8900a;-fx-background-radius:5;
                                -fx-text-fill:white;-fx-font-size:12px;-fx-font-weight:bold;
                                -fx-font-family:'Georgia';-fx-cursor:hand;-fx-padding:7 16 7 16;"/>
@@ -130,16 +114,12 @@
             <!-- Reports -->
             <VBox spacing="16.0" HBox.hgrow="ALWAYS" prefHeight="190.0"
                   style="-fx-background-color:white;-fx-background-radius:10;
-                         -fx-effect:dropshadow(gaussian,rgba(0,0,0,0.08),10,0,0,3);
-                         -fx-cursor:hand;">
+                         -fx-effect:dropshadow(gaussian,rgba(0,0,0,0.08),10,0,0,3);-fx-cursor:hand;">
                 <padding><Insets top="28" right="24" bottom="28" left="24"/></padding>
-
                 <StackPane prefWidth="52" prefHeight="52" maxWidth="52" maxHeight="52"
                            style="-fx-background-color:rgba(200,144,10,0.12);-fx-background-radius:50;">
-                    <Label text="📊"
-                           style="-fx-font-size:22px;"/>
+                    <Label text="📊" style="-fx-font-size:22px;"/>
                 </StackPane>
-
                 <VBox spacing="4.0">
                     <Label text="Reports"
                            style="-fx-font-size:16px;-fx-font-weight:bold;-fx-font-family:'Georgia';-fx-text-fill:#1a1a1a;"/>
@@ -147,11 +127,9 @@
                            wrapText="true"
                            style="-fx-font-size:12px;-fx-font-family:'Georgia';-fx-text-fill:#999;"/>
                 </VBox>
-
                 <Region VBox.vgrow="ALWAYS"/>
-
                 <Button text="Open  →" mnemonicParsing="false"
-
+                        onAction="#handleReports"
                         style="-fx-background-color:#c8900a;-fx-background-radius:5;
                                -fx-text-fill:white;-fx-font-size:12px;-fx-font-weight:bold;
                                -fx-font-family:'Georgia';-fx-cursor:hand;-fx-padding:7 16 7 16;"/>
@@ -160,16 +138,12 @@
             <!-- Notifications -->
             <VBox spacing="16.0" HBox.hgrow="ALWAYS" prefHeight="190.0"
                   style="-fx-background-color:white;-fx-background-radius:10;
-                         -fx-effect:dropshadow(gaussian,rgba(0,0,0,0.08),10,0,0,3);
-                         -fx-cursor:hand;">
+                         -fx-effect:dropshadow(gaussian,rgba(0,0,0,0.08),10,0,0,3);-fx-cursor:hand;">
                 <padding><Insets top="28" right="24" bottom="28" left="24"/></padding>
-
                 <StackPane prefWidth="52" prefHeight="52" maxWidth="52" maxHeight="52"
                            style="-fx-background-color:rgba(200,144,10,0.12);-fx-background-radius:50;">
-                    <Label text="🔔"
-                           style="-fx-font-size:22px;"/>
+                    <Label text="🔔" style="-fx-font-size:22px;"/>
                 </StackPane>
-
                 <VBox spacing="4.0">
                     <Label text="Notifications"
                            style="-fx-font-size:16px;-fx-font-weight:bold;-fx-font-family:'Georgia';-fx-text-fill:#1a1a1a;"/>
@@ -177,11 +151,9 @@
                            wrapText="true"
                            style="-fx-font-size:12px;-fx-font-family:'Georgia';-fx-text-fill:#999;"/>
                 </VBox>
-
                 <Region VBox.vgrow="ALWAYS"/>
-
                 <Button text="Open  →" mnemonicParsing="false"
-
+                        onAction="#handleNotifications"
                         style="-fx-background-color:#c8900a;-fx-background-radius:5;
                                -fx-text-fill:white;-fx-font-size:12px;-fx-font-weight:bold;
                                -fx-font-family:'Georgia';-fx-cursor:hand;-fx-padding:7 16 7 16;"/>
@@ -189,7 +161,7 @@
 
         </HBox>
 
-        <!-- ── QUICK STATS ROW ── -->
+        <!-- ── QUICK STATS ── -->
         <HBox spacing="20.0">
 
             <HBox spacing="14.0" HBox.hgrow="ALWAYS" alignment="CENTER_LEFT"
@@ -200,7 +172,7 @@
                 <VBox spacing="2.0">
                     <Label text="Total Students"
                            style="-fx-font-size:11px;-fx-font-family:'Georgia';-fx-text-fill:#999;"/>
-                    <Label fx:id="statStudents" text="60"
+                    <Label fx:id="statStudents" text="—"
                            style="-fx-font-size:22px;-fx-font-weight:bold;-fx-font-family:'Georgia';-fx-text-fill:#1a1a1a;"/>
                 </VBox>
             </HBox>
@@ -211,9 +183,9 @@
                 <padding><Insets top="18" right="20" bottom="18" left="20"/></padding>
                 <Label text="✅" style="-fx-font-size:20px;"/>
                 <VBox spacing="2.0">
-                    <Label text="Present Today"
+                    <Label text="Attendance Rate"
                            style="-fx-font-size:11px;-fx-font-family:'Georgia';-fx-text-fill:#999;"/>
-                    <Label fx:id="statPresent" text="54"
+                    <Label fx:id="statPresent" text="—"
                            style="-fx-font-size:22px;-fx-font-weight:bold;-fx-font-family:'Georgia';-fx-text-fill:#4caf50;"/>
                 </VBox>
             </HBox>
@@ -226,7 +198,7 @@
                 <VBox spacing="2.0">
                     <Label text="Outstanding Fees"
                            style="-fx-font-size:11px;-fx-font-family:'Georgia';-fx-text-fill:#999;"/>
-                    <Label fx:id="statFees" text="R 5 000"
+                    <Label fx:id="statFees" text="—"
                            style="-fx-font-size:22px;-fx-font-weight:bold;-fx-font-family:'Georgia';-fx-text-fill:#e57373;"/>
                 </VBox>
             </HBox>
@@ -239,7 +211,7 @@
                 <VBox spacing="2.0">
                     <Label text="Pending Notifications"
                            style="-fx-font-size:11px;-fx-font-family:'Georgia';-fx-text-fill:#999;"/>
-                    <Label fx:id="statNotifications" text="3"
+                    <Label fx:id="statNotifications" text="—"
                            style="-fx-font-size:22px;-fx-font-weight:bold;-fx-font-family:'Georgia';-fx-text-fill:#ffb74d;"/>
                 </VBox>
             </HBox>
@@ -255,7 +227,7 @@
         <Label text="BrightStart Preschool SIMS  ·  v1.0"
                style="-fx-text-fill:#666;-fx-font-size:11px;-fx-font-family:'Georgia';"/>
         <Region HBox.hgrow="ALWAYS"/>
-        <Label text="Logged in as Administrator"
+        <Label fx:id="footerLabel" text=""
                style="-fx-text-fill:#666;-fx-font-size:11px;-fx-font-family:'Georgia';"/>
     </HBox>
 
